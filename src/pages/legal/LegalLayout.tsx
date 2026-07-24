@@ -1,0 +1,80 @@
+import { Link } from "react-router-dom";
+import { PageLayout } from "../../components/PageLayout";
+
+// ─── Shared Layout ────────────────────────────────────────────────────────────
+export function LegalLayout({
+  badge,
+  title,
+  subtitle,
+  lastUpdated,
+  children,
+}: {
+  badge: string;
+  title: string;
+  subtitle: string;
+  lastUpdated: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <PageLayout>
+      {/* Hero Banner */}
+      <div className="bg-amber-50/50 dark:bg-amber-950/40 py-16 px-4 text-center border-b border-amber-100 dark:border-white/5 transition-colors duration-500">
+        <span className="inline-block px-4 py-1.5 bg-amber-100 dark:bg-amber-900/40 rounded-full text-amber-800 dark:text-amber-300 text-xs font-semibold tracking-widest uppercase mb-5 border border-amber-200 dark:border-white/10">
+          {badge}
+        </span>
+        <h1
+          className="text-4xl md:text-5xl font-black mb-4 text-gray-900 dark:text-white"
+          style={{ fontFamily: "Merriweather, serif" }}
+        >
+          {title}
+        </h1>
+        <p className="text-gray-500 dark:text-amber-300/80 max-w-xl mx-auto text-sm leading-relaxed font-medium">
+          {subtitle}
+        </p>
+        <p className="mt-4 text-amber-600 dark:text-amber-500 text-xs font-bold">
+          Last updated: {lastUpdated}
+        </p>
+      </div>
+
+      {/* Content */}
+      <div className="flex-1 max-w-4xl mx-auto w-full px-4 py-14">
+        <div className="bg-white dark:bg-dark-card rounded-2xl shadow-sm border border-amber-100 dark:border-white/5 p-8 md:p-12 space-y-10 text-amber-950 dark:text-gray-300">
+          {children}
+        </div>
+
+        {/* Back link */}
+        <div className="mt-8 text-center">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-amber-900 text-white rounded-full font-bold text-sm hover:bg-amber-800 transition-all shadow"
+          >
+             Back to Home
+          </Link>
+        </div>
+      </div>
+    </PageLayout>
+  );
+}
+
+// ─── Reusable section block ────────────────────────────────────────────────────
+export function Section({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <section>
+      <h2
+        className="text-xl font-black text-amber-900 dark:text-amber-400 mb-3 pb-2 border-b border-amber-100 dark:border-white/5"
+        style={{ fontFamily: "Merriweather, serif" }}
+      >
+        {title}
+      </h2>
+      <div className="text-sm text-amber-800/80 dark:text-gray-400 leading-relaxed space-y-3">
+        {children}
+      </div>
+    </section>
+  );
+}
