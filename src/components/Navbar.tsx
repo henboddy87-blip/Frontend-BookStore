@@ -59,6 +59,7 @@ export function Navbar({
   const [showDropdown, setShowDropdown] = useState(false);
   const [showLanguageMenu, setShowLanguageMenu] = useState(false);
   const [compactDetail, setCompactDetail] = useState(false);
+  const [cartShake, setCartShake] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
   const mobileSearchRef = useRef<HTMLDivElement>(null);
   const langMenuRef = useRef<HTMLDivElement>(null);
@@ -72,6 +73,15 @@ export function Navbar({
     window.addEventListener("scroll", handler);
     return () => window.removeEventListener("scroll", handler);
   }, []);
+
+  // Shake cart icon when items change
+  useEffect(() => {
+    if (cartCount > 0) {
+      setCartShake(true);
+      const timer = setTimeout(() => setCartShake(false), 600);
+      return () => clearTimeout(timer);
+    }
+  }, [cartCount]);
 
   // Close dropdowns on click outside
   useEffect(() => {
@@ -238,7 +248,7 @@ export function Navbar({
   return (
     <>
       {/* Top Promo Bar */}
-      <div className="bg-amber-800 text-amber-50 text-center text-sm py-2 px-4 flex flex-wrap items-center justify-center gap-1">
+      <div className="bg-amber-800 text-amber-50 text-center text-[16px] py-2 px-4 flex flex-wrap items-center justify-center gap-1">
         <span>{t("freeShipping")}</span>
         <span className="hidden xs:inline">|</span>
         <span className="w-full xs:w-auto">
@@ -249,7 +259,7 @@ export function Navbar({
 
       {/* Main Nav */}
       <nav
-        className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? "bg-white/95 dark:bg-dark-bg/95 backdrop-blur-md shadow-md" : "bg-white dark:bg-dark-bg shadow-sm"}`}
+        className={`sticky top-0 z-[110] transition-all duration-300 ${isScrolled ? "bg-white/95 dark:bg-dark-bg/95 backdrop-blur-md shadow-md" : "bg-white dark:bg-dark-bg shadow-sm"}`}
       >
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div
@@ -275,13 +285,13 @@ export function Navbar({
                 </div>
                 <div className="flex items-center">
                   <span
-                    className="text-lg sm:text-xl md:text-2xl font-black text-amber-900 dark:text-amber-400"
+                    className="text-xl sm:text-2xl md:text-3xl font-black text-amber-900 dark:text-amber-400"
                     style={{ fontFamily: "Merriweather, serif" }}
                   >
                     Khmer
                   </span>
                   <span
-                    className="text-lg sm:text-xl md:text-2xl font-black text-amber-600 dark:text-amber-600"
+                    className="text-xl sm:text-2xl md:text-3xl font-black text-amber-600 dark:text-amber-600"
                     style={{ fontFamily: "Merriweather, serif" }}
                   >
                     Bookstore
@@ -293,7 +303,7 @@ export function Navbar({
               <div className="hidden xl:flex items-center gap-1">
                 <button
                   onClick={handleHomeClick}
-                  className={`flex items-center gap-1.5 px-3 py-2 rounded-full text-sm font-semibold transition-all whitespace-nowrap ${
+                  className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-[18px] font-semibold transition-all whitespace-nowrap ${
                     isHome
                       ? "bg-amber-900 text-white dark:bg-amber-800"
                       : "text-gray-600 dark:text-gray-300 hover:text-amber-900 dark:hover:text-amber-400 hover:bg-amber-50 dark:hover:bg-white/5"
@@ -306,7 +316,7 @@ export function Navbar({
                   <button
                     key={cat.id}
                     onClick={() => handleCatClick(cat.id)}
-                    className={`px-3 py-2 rounded-full text-sm font-semibold transition-all cursor-pointer whitespace-nowrap ${
+                    className={`px-4 py-2 rounded-full text-[18px] font-semibold transition-all cursor-pointer whitespace-nowrap ${
                       isCatActive(cat.id)
                         ? "bg-amber-900 text-white dark:bg-amber-800"
                         : "text-gray-600 dark:text-gray-300 hover:text-amber-900 dark:hover:text-amber-400 hover:bg-amber-50 dark:hover:bg-white/5"
@@ -340,7 +350,7 @@ export function Navbar({
                     setSearchFocused(false);
                     setTimeout(() => setShowDropdown(false), 200);
                   }}
-                  className={`w-full px-6 py-3 pl-14 rounded-full border-2 transition-all focus:outline-none bg-white dark:bg-dark-card text-base dark:text-white ${
+                  className={`w-full px-6 py-3.5 pl-14 rounded-full border-2 transition-all focus:outline-none bg-white dark:bg-dark-card text-[18px] dark:text-white ${
                     searchFocused
                       ? "border-amber-500 shadow-lg dark:border-amber-600"
                       : "border-gray-200 dark:border-white/10 hover:border-gray-300 dark:hover:border-white/20"
@@ -421,16 +431,11 @@ export function Navbar({
                           className="w-full h-full object-cover"
                         />
                       </div>
-                      <div className="flex flex-col">
-                        <span
-                          className={`text-xs font-bold ${language === "km" ? "text-amber-900" : "text-gray-700"}`}
-                        >
-                          Khmer
-                        </span>
-                        <span className="text-[9px] text-gray-400">
-                          ភាសាខ្មែរ
-                        </span>
-                      </div>
+                      <span
+                        className={`text-sm font-bold ${language === "km" ? "text-amber-900" : "text-gray-700"}`}
+                      >
+                        Khmer
+                      </span>
                       {language === "km" && (
                         <div className="ml-auto w-1.5 h-1.5 bg-amber-600 rounded-full" />
                       )}
@@ -449,16 +454,11 @@ export function Navbar({
                           className="w-full h-full object-cover"
                         />
                       </div>
-                      <div className="flex flex-col">
-                        <span
-                          className={`text-xs font-bold ${language === "en" ? "text-amber-900" : "text-gray-700"}`}
-                        >
-                          English
-                        </span>
-                        <span className="text-[9px] text-gray-400">
-                          English
-                        </span>
-                      </div>
+                      <span
+                        className={`text-sm font-bold ${language === "en" ? "text-amber-900" : "text-gray-700"}`}
+                      >
+                        English
+                      </span>
                       {language === "en" && (
                         <div className="ml-auto w-1.5 h-1.5 bg-amber-600 rounded-full" />
                       )}
@@ -490,10 +490,10 @@ export function Navbar({
                   )}
                 </div>
                 <div className="text-left hidden lg:block">
-                  <p className="text-xs text-gray-400 dark:text-gray-500">
+                  <p className="text-sm text-gray-400 dark:text-gray-500">
                     {user ? t("hello") + "," : t("welcome")}
                   </p>
-                  <p className="text-sm font-semibold dark:text-white">
+                  <p className="text-base font-semibold dark:text-white">
                     {user ? user.name?.split(" ")[0] || "User" : t("signIn")}
                   </p>
                 </div>
@@ -519,7 +519,7 @@ export function Navbar({
                 type="button"
                 onClick={onCartClick}
                 aria-label="Open cart"
-                className="relative p-2.5 text-gray-600 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-400 hover:bg-amber-50 dark:hover:bg-white/5 rounded-full transition-all cursor-pointer"
+                className={`relative p-2.5 text-gray-600 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-400 hover:bg-amber-50 dark:hover:bg-white/5 rounded-full transition-all cursor-pointer btn-press ${cartShake ? 'animate-cart-shake' : ''}`}
               >
                 <FaShoppingCart size={18} />
                 {cartCount > 0 && (

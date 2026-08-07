@@ -74,6 +74,49 @@ export const translations = {
       "Inspire young minds with our enchanting collection of children's books",
     heroCTA5: "Shop Children",
 
+    // Hero Slides 6-12
+    heroBadge6: " Personal Growth",
+    heroTitle6: "Elevate Your",
+    heroHighlight6: "Mindset",
+    heroSubtitle6: "Discover top self-help books to transform your life and career",
+    heroCTA6: "Shop Self-Help",
+
+    heroBadge7: " Inspiring Lives",
+    heroTitle7: "Real Stories,",
+    heroHighlight7: "Real Impact",
+    heroSubtitle7: "Dive into the fascinating biographies of world-changing figures",
+    heroCTA7: "Shop Biography",
+
+    heroBadge8: " Health & Wellness",
+    heroTitle8: "Prioritize Your",
+    heroHighlight8: "Health",
+    heroSubtitle8: "Expert advice on fitness, nutrition, and mental well-being",
+    heroCTA8: "Shop Health",
+
+    heroBadge9: " Wealth Building",
+    heroTitle9: "Master Your",
+    heroHighlight9: "Finances",
+    heroSubtitle9: "Learn the secrets of investing, saving, and financial freedom",
+    heroCTA9: "Shop Finance",
+
+    heroBadge10: " Creative Soul",
+    heroTitle10: "Unleash Your",
+    heroHighlight10: "Inner Artist",
+    heroSubtitle10: "Explore the world of art, design, and creative expression",
+    heroCTA10: "Shop Arts",
+
+    heroBadge11: " Real World",
+    heroTitle11: "Discover The",
+    heroHighlight11: "Truth",
+    heroSubtitle11: "Informative and thought-provoking non-fiction reads",
+    heroCTA11: "Shop Non-Fiction",
+
+    heroBadge12: " Tech & Innovation",
+    heroTitle12: "Future",
+    heroHighlight12: "Ready",
+    heroSubtitle12: "Stay ahead with the latest in technology and programming",
+    heroCTA12: "Shop Technology",
+
     // Hero Stats
     booksAvailable: "Books Available",
     happyReaders: "Happy Readers",
@@ -359,6 +402,49 @@ export const translations = {
     heroSubtitle5:
       "បំផុសគំនិតយុវវ័យ ទម្លាប់ល្អ វិន័យ ជាមួយនឹងការប្រមូលសៀវភៅកុមារដ៏គួរឱ្យទាក់ទាញរបស់យើង",
     heroCTA5: "ទិញសៀវភៅកុមារ",
+
+    // Hero Slides 6-12
+    heroBadge6: " ការរីកចម្រើនផ្ទាល់ខ្លួន",
+    heroTitle6: "លើកកម្ពស់",
+    heroHighlight6: "ផ្នត់គំនិតរបស់អ្នក",
+    heroSubtitle6: "ស្វែងរកសៀវភៅអភិវឌ្ឍខ្លួនដើម្បីផ្លាស់ប្តូរជីវិតរបស់អ្នក",
+    heroCTA6: "ទិញសៀវភៅអភិវឌ្ឍខ្លួន",
+
+    heroBadge7: " ជីវិតដែលជំរុញទឹកចិត្ត",
+    heroTitle7: "រឿងពិត,",
+    heroHighlight7: "ឥទ្ធិពលពិត",
+    heroSubtitle7: "ស្វែងយល់ពីជីវប្រវត្តិដ៏គួរឱ្យចាប់អារម្មណ៍របស់បុគ្គលល្បីៗ",
+    heroCTA7: "ទិញសៀវភៅជីវប្រវត្តិ",
+
+    heroBadge8: " សុខភាពជាចម្បង",
+    heroTitle8: "ផ្តល់អាទិភាពដល់",
+    heroHighlight8: "សុខភាពអ្នក",
+    heroSubtitle8: "ដំបូន្មានអ្នកជំនាញស្តីពីកាយសម្បទា អាហារូបត្ថម្ភ និងសុខភាពផ្លូវចិត្ត",
+    heroCTA8: "ទិញសៀវភៅសុខភាព",
+
+    heroBadge9: " ការកសាងទ្រព្យសម្បត្តិ",
+    heroTitle9: "គ្រប់គ្រង",
+    heroHighlight9: "ហិរញ្ញវត្ថុអ្នក",
+    heroSubtitle9: "រៀនពីអាថ៌កំបាំងនៃការវិនិយោគ និងសេរីភាពហិរញ្ញវត្ថុ",
+    heroCTA9: "ទិញសៀវភៅហិរញ្ញវត្ថុ",
+
+    heroBadge10: " ព្រលឹងសិល្បៈ",
+    heroTitle10: "បញ្ចេញ",
+    heroHighlight10: "សិល្បករក្នុងខ្លួនអ្នក",
+    heroSubtitle10: "ស្វែងយល់ពីពិភពសិល្បៈ ការរចនា និងការបញ្ចេញមតិ",
+    heroCTA10: "ទិញសៀវភៅសិល្បៈ",
+
+    heroBadge11: " ពិភពលោកពិត",
+    heroTitle11: "ស្វែងយល់ពី",
+    heroHighlight11: "ការពិត",
+    heroSubtitle11: "សៀវភៅមិនមែនរឿងប្រឌិតដែលផ្តល់ព័ត៌មាន និងការគិត",
+    heroCTA11: "ទិញសៀវភៅមិនមែនរឿងប្រឌិត",
+
+    heroBadge12: " បច្ចេកវិទ្យា និងការច្នៃប្រឌិត",
+    heroTitle12: "ត្រៀមខ្លួន",
+    heroHighlight12: "សម្រាប់អនាគត",
+    heroSubtitle12: "ឈានមុខគេជាមួយនឹងបច្ចេកវិទ្យា និងការសរសេរកម្មវិធីថ្មីៗបំផុត",
+    heroCTA12: "ទិញសៀវភៅបច្ចេកវិទ្យា",
 
     // Hero Stats
     booksAvailable: "សៀវភៅដែលមាន",

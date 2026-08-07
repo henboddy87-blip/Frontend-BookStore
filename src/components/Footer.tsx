@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useStore } from "../context/StoreContext";
 import { TranslationKey } from "../data/translations";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
 const SHOP_LINKS: { label: TranslationKey; to: string }[] = [
   { label: "allBooks", to: "/books" },
@@ -57,14 +58,15 @@ const PAYMENT_LOGOS = [
 
 export function Footer() {
   const { t } = useStore();
+  const [footerRef, footerVisible] = useScrollReveal({ threshold: 0.05 });
 
   return (
     <footer className="bg-amber-50 dark:bg-amber-950 text-amber-900 dark:text-amber-100 border-t border-amber-100 dark:border-amber-900">
       {/* Main Footer */}
       <div className="max-w-[1600px] mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+        <div ref={footerRef} className="grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* Brand */}
-          <div className="md:col-span-2">
+          <div className={`md:col-span-2 reveal stagger-1 ${footerVisible ? 'revealed' : ''}`}>
             <Link to="/" className="flex items-center gap-2 mb-4">
               <div className="h-20 w-20 sm:h-24 sm:w-24 md:h-28 md:w-28 flex items-center justify-center flex-shrink-0">
                 <img
@@ -83,7 +85,7 @@ export function Footer() {
                 </span>
               </span>
             </Link>
-            <p className="text-amber-900/70 dark:text-amber-300/70 text-sm mb-6 max-w-xs leading-relaxed">
+            <p className="text-amber-900/70 dark:text-amber-300/70 text-[18px] mb-6 max-w-xs leading-relaxed">
               Your premier online destination for books of every genre.
               Discover, read, and grow with over 50,000 titles.
             </p>
@@ -141,9 +143,9 @@ export function Footer() {
           </div>
 
           {/* Shop */}
-          <div>
+          <div className={`reveal stagger-3 ${footerVisible ? 'revealed' : ''}`}>
             <h4
-              className="font-bold text-amber-950 dark:text-white mb-4"
+              className="font-bold text-[22px] text-amber-950 dark:text-white mb-5"
               style={{ fontFamily: "Merriweather, serif" }}
             >
               {t("shop")}
@@ -153,7 +155,7 @@ export function Footer() {
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="text-amber-900/60 dark:text-amber-300/70 hover:text-amber-700 dark:hover:text-amber-200 transition-colors text-sm"
+                    className="text-amber-900/60 dark:text-amber-300/70 hover:text-amber-700 dark:hover:text-amber-200 transition-colors text-[18px]"
                   >
                     {t(link.label)}
                   </Link>
@@ -163,9 +165,9 @@ export function Footer() {
           </div>
 
           {/* Genres */}
-          <div>
+          <div className={`reveal stagger-5 ${footerVisible ? 'revealed' : ''}`}>
             <h4
-              className="font-bold text-amber-950 dark:text-white mb-4"
+              className="font-bold text-[22px] text-amber-950 dark:text-white mb-5"
               style={{ fontFamily: "Merriweather, serif" }}
             >
               {t("genres")}
@@ -175,7 +177,7 @@ export function Footer() {
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="text-amber-900/60 dark:text-amber-300/70 hover:text-amber-700 dark:hover:text-amber-200 transition-colors text-sm"
+                    className="text-amber-900/60 dark:text-amber-300/70 hover:text-amber-700 dark:hover:text-amber-200 transition-colors text-[18px]"
                   >
                     {t(link.label)}
                   </Link>
@@ -185,9 +187,9 @@ export function Footer() {
           </div>
 
           {/* Help */}
-          <div>
+          <div className={`reveal stagger-7 ${footerVisible ? 'revealed' : ''}`}>
             <h4
-              className="font-bold text-amber-950 dark:text-white mb-4"
+              className="font-bold text-[22px] text-amber-950 dark:text-white mb-5"
               style={{ fontFamily: "Merriweather, serif" }}
             >
               {t("help")}
@@ -197,7 +199,7 @@ export function Footer() {
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="text-amber-900/60 dark:text-amber-300/70 hover:text-amber-700 dark:hover:text-amber-200 transition-colors text-sm"
+                    className="text-amber-900/60 dark:text-amber-300/70 hover:text-amber-700 dark:hover:text-amber-200 transition-colors text-[18px]"
                   >
                     {t(link.label)}
                   </Link>
@@ -211,12 +213,12 @@ export function Footer() {
         <div className="border-t border-amber-200 dark:border-amber-900 mt-12 pt-12 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="w-full md:w-auto">
             <h4
-              className="font-bold text-amber-950 dark:text-white mb-1"
+              className="font-bold text-[22px] text-amber-950 dark:text-white mb-2"
               style={{ fontFamily: "Merriweather, serif" }}
             >
               {t("readAnywhere")}
             </h4>
-            <p className="text-amber-900/60 dark:text-amber-300/60 text-sm">
+            <p className="text-amber-900/60 dark:text-amber-300/60 text-[18px]">
               {t("accessLibrary")}
             </p>
           </div>
@@ -261,7 +263,7 @@ export function Footer() {
         <div className="max-w-[1600px] mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Payment logos — plain images, no color/bg overrides */}
           <div className="flex flex-wrap items-center gap-3 max-w-full">
-            <span className="text-sm text-amber-800 dark:text-amber-400 whitespace-nowrap">
+            <span className="text-[18px] text-amber-800 dark:text-amber-400 whitespace-nowrap">
               {t("weAccept")}:
             </span>
             <div className="flex flex-wrap items-center gap-2 overflow-x-auto py-1">
@@ -282,7 +284,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="flex flex-wrap justify-center md:justify-end gap-4 text-sm text-amber-900/40 dark:text-amber-400/60">
+          <div className="flex flex-wrap justify-center md:justify-end gap-5 text-[18px] text-amber-900/40 dark:text-amber-400/60">
             {LEGAL_LINKS.map((l) => (
               <Link
                 key={l.label}
@@ -294,7 +296,7 @@ export function Footer() {
             ))}
           </div>
 
-          <p className="text-sm text-amber-900/30 dark:text-amber-400/40 text-center md:text-right">
+          <p className="text-[16px] text-amber-900/30 dark:text-amber-400/40 text-center md:text-right">
             © 2026 KhmerBookStore. {t("allRightsReserved")}
           </p>
         </div>

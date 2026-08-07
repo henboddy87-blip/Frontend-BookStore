@@ -125,12 +125,12 @@ export function BookDetail({ book, onClose }: BookDetailProps) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto">
+    <div className="fixed inset-0 z-[100] overflow-y-auto">
       <div
-        className="fixed inset-0 bg-black/50 backdrop-blur-md z-40"
+        className="fixed inset-0 bg-black/50 backdrop-blur-md z-[100]"
         onClick={onClose}
       />
-      <div className="relative min-h-screen flex items-start justify-center p-4 py-8 z-50">
+      <div className="relative min-h-screen flex items-start justify-center p-4 pt-32 lg:pt-[200px] pb-8 z-[100]">
         <div className="relative bg-white dark:bg-dark-bg rounded-3xl max-w-6xl w-full shadow-2xl overflow-hidden animate-scale-in border dark:border-white/5">
           {/* Close */}
           <button
@@ -142,9 +142,9 @@ export function BookDetail({ book, onClose }: BookDetailProps) {
 
           <div className="grid lg:grid-cols-5 gap-0">
             {/* Left - Book Cover */}
-            <div className="lg:col-span-2 bg-gradient-to-br from-slate-900 via-gray-900 to-black p-8 flex flex-col items-center">
+            <div className="lg:col-span-2 bg-gradient-to-br from-slate-900 via-gray-900 to-black p-6 md:p-8 flex flex-col">
               {/* Badges */}
-              <div className="flex gap-2 mb-6 self-start">
+              <div className="flex gap-2 mb-6">
                 {book.isNew && (
                   <span className="px-3 py-1 bg-emerald-500 text-white text-xs font-bold rounded-full">
                     NEW
@@ -162,39 +162,40 @@ export function BookDetail({ book, onClose }: BookDetailProps) {
                 )}
               </div>
 
-              <div className="relative w-full flex justify-center mb-6">
-                <div className="absolute -inset-8 bg-gradient-to-b from-amber-500/20 to-transparent blur-3xl" />
-                <img
-                  src={galleryImages[currentImg]}
-                  alt={`${book.title} - view ${currentImg + 1}`}
-                  className="relative w-56 h-80 object-cover rounded-2xl border border-white/20 shadow-[0_25px_80px_rgba(0,0,0,0.7)]"
-                />
-              </div>
-
-              {galleryImages.length > 1 && (
-                <div className="flex gap-2">
-                  {galleryImages.map((img, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setCurrentImg(i)}
-                      className={`w-16 rounded-xl overflow-hidden border transition-all ${
-                        currentImg === i
-                          ? "border-amber-400 shadow-lg shadow-amber-500/20"
-                          : "border-white/10 opacity-70 hover:opacity-100"
-                      }`}
-                    >
-                      <img
-                        src={img}
-                        alt=""
-                        className="w-full h-20 object-cover bg-white/10"
-                      />
-                      <span className="block text-[10px] py-1 text-center bg-black/60 text-gray-200 font-semibold">
-                        {i === 0 ? "Front" : i === 1 ? "Back" : "Preview"}
-                      </span>
-                    </button>
-                  ))}
+              <div className="flex gap-5 flex-1 items-start">
+                {/* Thumbnails (Left side) */}
+                {galleryImages.length > 1 && (
+                  <div className="flex flex-col gap-3 shrink-0">
+                    {galleryImages.map((img, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setCurrentImg(i)}
+                        className={`w-16 rounded-xl overflow-hidden border transition-all ${
+                          currentImg === i
+                            ? "border-amber-400 shadow-lg shadow-amber-500/20 scale-105"
+                            : "border-white/10 opacity-70 hover:opacity-100"
+                        }`}
+                      >
+                        <img
+                          src={img}
+                          alt=""
+                          className="w-full h-24 object-cover bg-white/10"
+                        />
+                      </button>
+                    ))}
+                  </div>
+                )}
+                
+                {/* Main Image (Right side) */}
+                <div className="relative flex-1 flex justify-center items-center w-full min-h-[400px]">
+                  <div className="absolute -inset-8 bg-gradient-to-b from-amber-500/20 to-transparent blur-3xl" />
+                  <img
+                    src={galleryImages[currentImg]}
+                    alt={`${book.title} - view ${currentImg + 1}`}
+                    className="relative w-full max-h-[500px] object-contain rounded-2xl border border-white/20 shadow-[0_25px_80px_rgba(0,0,0,0.7)]"
+                  />
                 </div>
-              )}
+              </div>
             </div>
 
             {/* Right - Details */}

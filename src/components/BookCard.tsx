@@ -56,12 +56,13 @@ export function BookCard({ book, onBookClick }: BookCardProps) {
     : 0;
 
   return (
-    <div
-      onClick={() => onBookClick(book)}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className="group bg-white dark:bg-dark-card rounded-2xl overflow-hidden border border-gray-100 dark:border-white/5 flex flex-col hover-lift cursor-pointer shadow-sm"
-    >
+    <div className="card-3d">
+      <div
+        onClick={() => onBookClick(book)}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        className="card-3d-inner group bg-white dark:bg-dark-card rounded-2xl overflow-hidden border border-gray-100 dark:border-white/5 flex flex-col cursor-pointer shadow-sm"
+      >
       {/* Cover */}
       <div className="relative bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 aspect-[3/4] overflow-hidden flex items-center justify-center p-4">
         {!imgLoaded && <div className="absolute inset-0 shimmer" />}
@@ -71,23 +72,23 @@ export function BookCard({ book, onBookClick }: BookCardProps) {
           onLoad={() => setImgLoaded(true)}
           loading="lazy"
           decoding="async"
-          className={`h-full w-auto max-w-full object-contain drop-shadow-xl transition-all duration-500 ${hovered ? "scale-105" : "scale-100"} ${imgLoaded ? "opacity-100" : "opacity-0"}`}
+          className={`h-full w-auto max-w-full object-contain drop-shadow-xl cover-glow transition-all duration-500 ${hovered ? 'scale-105' : 'scale-100'} ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
         />
 
         {/* Badges */}
         <div className="absolute top-3 left-3 flex flex-col gap-1.5 z-10">
           {book.isNew && (
-            <span className="px-2.5 py-1 bg-emerald-500 text-white text-xs font-bold rounded-full shadow-sm">
+            <span className="badge-bounce px-2.5 py-1 bg-emerald-500 text-white text-xs font-bold rounded-full shadow-sm">
               NEW
             </span>
           )}
           {book.isBestseller && (
-            <span className="px-2.5 py-1 bg-amber-600 text-white text-xs font-bold rounded-full shadow-sm flex items-center gap-1">
+            <span className="badge-bounce px-2.5 py-1 bg-amber-600 text-white text-xs font-bold rounded-full shadow-sm flex items-center gap-1">
               <FaFire size={9} /> Best
             </span>
           )}
           {book.isSale && discount > 0 && (
-            <span className="px-2.5 py-1 bg-red-500 text-white text-xs font-bold rounded-full shadow-sm">
+            <span className="badge-bounce px-2.5 py-1 bg-red-500 text-white text-xs font-bold rounded-full shadow-sm">
               -{discount}%
             </span>
           )}
@@ -214,6 +215,7 @@ export function BookCard({ book, onBookClick }: BookCardProps) {
             </span>
           )}
         </div>
+      </div>
       </div>
     </div>
   );

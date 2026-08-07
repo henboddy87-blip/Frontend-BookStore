@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
-import { ArrowRight as FaArrowRight, Star as FaStar } from 'lucide-react';
+import { ArrowRight as FaArrowRight } from 'lucide-react';
 import { useStore } from '../context/StoreContext';
+import { useCountUp } from '../hooks/useCountUp';
 
 interface HeroProps {
   onShopNow: () => void;
@@ -8,9 +9,11 @@ interface HeroProps {
 }
 
 export function Hero({ onShopNow, onCategoryChange }: HeroProps) {
-  const { t, isDarkMode } = useStore();
+  const { t } = useStore();
   const [current, setCurrent] = useState(0);
   const [animating, setAnimating] = useState(false);
+  const booksCount = useCountUp({ end: 1000, duration: 2200, suffix: '+' });
+  const readersCount = useCountUp({ end: 10000, duration: 2500, suffix: '+' });
 
   const slides = useMemo(() => [
     {
@@ -20,7 +23,7 @@ export function Hero({ onShopNow, onCategoryChange }: HeroProps) {
       subtitle: t('heroSubtitle1'),
       cta: t('heroCTA1'),
       ctaCat: 'all',
-      image: 'https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1200&h=900&fit=crop&q=80',
+      image: '/images/personal-development/1.jpg',
       featuredBook: {
         cover: '/images/personal-development/1.jpg',
         title: 'The 7 Habits of Highly Effective People',
@@ -35,7 +38,7 @@ export function Hero({ onShopNow, onCategoryChange }: HeroProps) {
       subtitle: t('heroSubtitle2'),
       cta: t('heroCTA2'),
       ctaCat: 'fiction',
-      image: 'https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=1200&h=900&fit=crop&q=80',
+      image: '/images/novel/Picture1.png',
       featuredBook: {
         cover: '/images/novel/Picture1.png',
         title: 'ពណ៍ស្វាយ',
@@ -49,8 +52,8 @@ export function Hero({ onShopNow, onCategoryChange }: HeroProps) {
       highlight: t('heroHighlight3'),
       subtitle: t('heroSubtitle3'),
       cta: t('heroCTA3'),
-      ctaCat: 'self-help',
-      image: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1200&h=900&fit=crop&q=80',
+      ctaCat: 'selfHelp',
+      image: '/images/finance/9.jpg',
       featuredBook: {
         cover: '/images/finance/9.jpg',
         title: 'The Lean Start Up',
@@ -64,8 +67,8 @@ export function Hero({ onShopNow, onCategoryChange }: HeroProps) {
       highlight: t('heroHighlight4'),
       subtitle: t('heroSubtitle4'),
       cta: t('heroCTA4'),
-      ctaCat: 'khmer-literature',
-      image: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?w=1200&h=900&fit=crop&q=80',
+      ctaCat: 'khmerLiterature',
+      image: '/images/khmer-literature/khmer1.jpg',
       featuredBook: {
         cover: '/images/khmer-literature/khmer1.jpg',
         title: 'Kong Hean',
@@ -80,12 +83,117 @@ export function Hero({ onShopNow, onCategoryChange }: HeroProps) {
       subtitle: t('heroSubtitle5'),
       cta: t('heroCTA5'),
       ctaCat: 'children',
-      image: 'https://images.unsplash.com/photo-1514894646058-da39625d0862?w=1200&h=900&fit=crop&q=80',
+      image: '/images/children/9.jpg',
       featuredBook: {
         cover: '/images/children/9.jpg',
         title: 'The Wild Robot',
         author: 'Peter Brown',
         rating: 4.9,
+      }
+    },
+    {
+      badge: t('heroBadge6' as any),
+      title: t('heroTitle6' as any),
+      highlight: t('heroHighlight6' as any),
+      subtitle: t('heroSubtitle6' as any),
+      cta: t('heroCTA6' as any),
+      ctaCat: 'selfHelp',
+      image: '/images/personal-development/10.jpg',
+      featuredBook: { 
+        cover: '/images/personal-development/10.jpg', 
+        title: 'The Miracle Morning', 
+        author: 'Hal Elrod', 
+        rating: 4.9 
+      }
+    },
+    {
+      badge: t('heroBadge7' as any),
+      title: t('heroTitle7' as any),
+      highlight: t('heroHighlight7' as any),
+      subtitle: t('heroSubtitle7' as any),
+      cta: t('heroCTA7' as any),
+      ctaCat: 'biography',
+      image: '/images/biography/1.jpg',
+      featuredBook: { 
+        cover: '/images/biography/1.jpg', 
+        title: 'Steve Jobs', 
+        author: 'Walter Isaacson', 
+        rating: 4.2 
+      }
+    },
+    {
+      badge: t('heroBadge8' as any),
+      title: t('heroTitle8' as any),
+      highlight: t('heroHighlight8' as any),
+      subtitle: t('heroSubtitle8' as any),
+      cta: t('heroCTA8' as any),
+      ctaCat: 'health',
+      image: '/images/health/2.jpg',
+      featuredBook: { 
+        cover: '/images/health/2.jpg', 
+        title: 'Outlive', 
+        author: 'Peter Attia', 
+        rating: 4.8 
+      }
+    },
+    {
+      badge: t('heroBadge9' as any),
+      title: t('heroTitle9' as any),
+      highlight: t('heroHighlight9' as any),
+      subtitle: t('heroSubtitle9' as any),
+      cta: t('heroCTA9' as any),
+      ctaCat: 'finance',
+      image: '/images/finance/9.jpg',
+      featuredBook: { 
+        cover: '/images/finance/9.jpg', 
+        title: 'The Psychology of Money', 
+        author: 'Morgan Housel', 
+        rating: 4.8 
+      }
+    },
+    {
+      badge: t('heroBadge10' as any),
+      title: t('heroTitle10' as any),
+      highlight: t('heroHighlight10' as any),
+      subtitle: t('heroSubtitle10' as any),
+      cta: t('heroCTA10' as any),
+      ctaCat: 'art',
+      image: '/images/art/2.jpg',
+      featuredBook: { 
+        cover: '/images/art/2.jpg', 
+        title: 'The Creative Act', 
+        author: 'Rick Rubin', 
+        rating: 4.7 
+      }
+    },
+    {
+      badge: t('heroBadge11' as any),
+      title: t('heroTitle11' as any),
+      highlight: t('heroHighlight11' as any),
+      subtitle: t('heroSubtitle11' as any),
+      cta: t('heroCTA11' as any),
+      ctaCat: 'nonFiction',
+      image: '/images/non-fiction/4.jpg',
+      featuredBook: { 
+        cover: '/images/non-fiction/4.jpg', 
+        title: 'Sapiens', 
+        author: 'Yuval Noah Harari', 
+        rating: 4.7 
+      }
+    },
+    {
+      badge: t('heroBadge12' as any),
+      title: t('heroTitle12' as any),
+      highlight: t('heroHighlight12' as any),
+      subtitle: t('heroSubtitle12' as any),
+      cta: t('heroCTA12' as any),
+      ctaCat: 'technology',
+      image: '/images/finance/14.jpg',
+      featuredBook: { 
+        cover: '/images/finance/14.jpg', 
+        title: 'Hooked', 
+        author: 'Nir Eyal', 
+        rating: 4.6 
       }
     },
   ], [t]);
@@ -160,28 +268,55 @@ export function Hero({ onShopNow, onCategoryChange }: HeroProps) {
             {/* Clean Stats */}
             <div className="flex items-center gap-8 md:gap-12 pt-8 border-t border-white/10">
               <div>
-                <p className="text-3xl font-black text-white">50K+</p>
+                <p ref={booksCount.ref as React.RefObject<HTMLParagraphElement>} className="text-3xl font-black text-white">{booksCount.display}</p>
                 <p className="text-sm font-medium text-gray-400 mt-1">{t('booksAvailable')}</p>
               </div>
               <div className="w-px h-12 bg-white/10" />
               <div>
-                <p className="text-3xl font-black text-white">200K+</p>
+                <p ref={readersCount.ref as React.RefObject<HTMLParagraphElement>} className="text-3xl font-black text-white">{readersCount.display}</p>
                 <p className="text-sm font-medium text-gray-400 mt-1">{t('happyReaders')}</p>
               </div>
             </div>
           </div>
 
           {/* Right Image Composition (5 cols) */}
-          <div className="lg:col-span-6 xl:col-span-7 relative h-full hidden lg:flex items-center justify-center">
-            <div className={`relative w-full max-w-[500px] aspect-[4/3] flex items-center justify-center transition-all duration-[1200ms] ease-[cubic-bezier(0.25,1,0.5,1)] ${animating ? 'opacity-0 scale-90 translate-y-8' : 'opacity-100 scale-100 translate-y-0'}`}>
-              
-              {/* Raw floating image without border/card */}
-              <img 
-                src={slide.image} 
-                alt="Featured Presentation" 
-                className="w-full h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] transform -rotate-2 group-hover/hero:rotate-0 group-hover/hero:scale-105 transition-transform duration-700" 
-              />
-              
+          <div className="lg:col-span-6 xl:col-span-7 relative h-full flex items-center justify-center order-first lg:order-last mt-4 lg:mt-0 pb-8 lg:pb-0">
+            <div className={`relative w-full max-w-[500px] sm:aspect-[4/3] flex items-center justify-center transition-all duration-[1200ms] ease-[cubic-bezier(0.25,1,0.5,1)] ${animating ? 'opacity-0 scale-90 translate-y-8' : 'opacity-100 scale-100 translate-y-0'}`}>
+              <div className="relative w-44 h-64 sm:w-52 sm:h-72 md:w-56 md:h-80 lg:w-64 lg:h-96 group/stack">
+                {slides.map((s, index) => {
+                  let diff = index - current;
+                  if (diff < 0) diff += slides.length;
+
+                  let zIndex = 50 - diff * 10;
+                  
+                  // Fan effect math
+                  let rotate = diff === 0 ? -6 : -6 + diff * 14;
+                  let translateX = diff === 0 ? -50 : -50 + diff * 40;
+                  let translateY = diff === 0 ? 20 : 20 - diff * 12;
+                  let scale = 1.05 - (diff * 0.04);
+
+                  return (
+                    <div
+                      key={index}
+                      className="absolute top-0 left-0 w-full h-full transition-all duration-[800ms] ease-out rounded-lg overflow-hidden border border-white/20 bg-gray-900 group-hover/stack:scale-105"
+                      style={{
+                        zIndex,
+                        transform: `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg) scale(${scale})`,
+                        boxShadow: diff === 0 
+                          ? '0 25px 50px -12px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0,0,0,0.4)' 
+                          : '0 15px 35px -5px rgba(0, 0, 0, 0.7)',
+                        opacity: diff > 3 ? 0 : 1, // Only show 4 books to prevent clutter
+                      }}
+                    >
+                      <img
+                        src={s.featuredBook.cover}
+                        alt={s.featuredBook.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>

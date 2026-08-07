@@ -19,19 +19,19 @@ export function LegalLayout({
     <PageLayout>
       {/* Hero Banner */}
       <div className="bg-amber-50/50 dark:bg-amber-950/40 py-16 px-4 text-center border-b border-amber-100 dark:border-white/5 transition-colors duration-500">
-        <span className="inline-block px-4 py-1.5 bg-amber-100 dark:bg-amber-900/40 rounded-full text-amber-800 dark:text-amber-300 text-xs font-semibold tracking-widest uppercase mb-5 border border-amber-200 dark:border-white/10">
+        <span className="inline-block px-4 py-1.5 bg-amber-100 dark:bg-amber-900/40 rounded-full text-amber-800 dark:text-amber-300 text-[16px] font-semibold tracking-widest uppercase mb-5 border border-amber-200 dark:border-white/10">
           {badge}
         </span>
         <h1
-          className="text-4xl md:text-5xl font-black mb-4 text-gray-900 dark:text-white"
+          className="text-[48px] font-black mb-4 text-gray-900 dark:text-white leading-tight"
           style={{ fontFamily: "Merriweather, serif" }}
         >
           {title}
         </h1>
-        <p className="text-gray-500 dark:text-amber-300/80 max-w-xl mx-auto text-sm leading-relaxed font-medium">
+        <p className="text-gray-500 dark:text-amber-300/80 max-w-xl mx-auto text-[20px] leading-relaxed font-medium">
           {subtitle}
         </p>
-        <p className="mt-4 text-amber-600 dark:text-amber-500 text-xs font-bold">
+        <p className="mt-4 text-amber-600 dark:text-amber-500 text-[16px] font-bold">
           Last updated: {lastUpdated}
         </p>
       </div>
@@ -46,7 +46,7 @@ export function LegalLayout({
         <div className="mt-8 text-center">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-amber-900 text-white rounded-full font-bold text-sm hover:bg-amber-800 transition-all shadow"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-amber-900 text-white rounded-full font-bold text-[20px] hover:bg-amber-800 transition-all shadow"
           >
              Back to Home
           </Link>
@@ -67,12 +67,12 @@ export function Section({
   return (
     <section>
       <h2
-        className="text-xl font-black text-amber-900 dark:text-amber-400 mb-3 pb-2 border-b border-amber-100 dark:border-white/5"
+        className="text-[34px] font-black text-amber-900 dark:text-amber-400 mb-4 pb-2 border-b border-amber-100 dark:border-white/5 leading-tight"
         style={{ fontFamily: "Merriweather, serif" }}
       >
         {title}
       </h2>
-      <div className="text-sm text-amber-800/80 dark:text-gray-400 leading-relaxed space-y-3">
+      <div className="text-[20px] text-amber-800/80 dark:text-gray-400 leading-relaxed space-y-4">
         {children}
       </div>
     </section>

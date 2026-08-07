@@ -44,7 +44,7 @@ export function Cart({ isOpen, onClose, onCheckout }: CartProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-hidden">
+    <div className="fixed inset-0 z-[120] overflow-hidden">
       <div
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
         onClick={onClose}

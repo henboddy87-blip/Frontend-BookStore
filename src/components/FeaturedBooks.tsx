@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ArrowRight as FaArrowRight } from 'lucide-react';
 import { Book } from '../types';
 import { BookCard } from './BookCard';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 interface FeaturedBooksProps {
   books: Book[];
@@ -11,6 +12,10 @@ interface FeaturedBooksProps {
 
 export function FeaturedBooks({ books, onBookClick, onViewAll }: FeaturedBooksProps) {
   const [tab, setTab] = useState<'bestsellers' | 'new' | 'sale'>('bestsellers');
+  const [headingRef, headingVisible] = useScrollReveal();
+  const [gridRef, gridVisible] = useScrollReveal({ threshold: 0.05 });
+  const [bannerRef, bannerVisible] = useScrollReveal();
+  const [favRef, favVisible] = useScrollReveal();
 
   const bestsellers = books.filter(b => b.isBestseller);
   const newBooks = books.filter(b => b.isNew);
@@ -21,7 +26,7 @@ export function FeaturedBooks({ books, onBookClick, onViewAll }: FeaturedBooksPr
   return (
     <section className="py-20 bg-amber-50/50 dark:bg-dark-bg/20 transition-colors duration-500">
       <div className="max-w-[1600px] mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-10">
+        <div ref={headingRef} className={`flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-10 reveal ${headingVisible ? 'revealed' : ''}`}>
           <div>
             <span className="text-amber-700 dark:text-amber-500 font-bold text-sm uppercase tracking-widest">Curated Picks</span>
             <h2 className="text-4xl font-black text-gray-900 dark:text-white mt-2" style={{ fontFamily: 'Merriweather, serif' }}>Trending Books</h2>
@@ -43,9 +48,11 @@ export function FeaturedBooks({ books, onBookClick, onViewAll }: FeaturedBooksPr
           </div>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
-          {displayed.slice(0, 10).map(book => (
-            <BookCard key={book.id} book={book} onBookClick={onBookClick} />
+        <div ref={gridRef} className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
+          {displayed.slice(0, 10).map((book, index) => (
+            <div key={book.id} className={`reveal stagger-${index + 1} ${gridVisible ? 'revealed' : ''}`}>
+              <BookCard book={book} onBookClick={onBookClick} />
+            </div>
           ))}
         </div>
 
@@ -58,7 +65,7 @@ export function FeaturedBooks({ books, onBookClick, onViewAll }: FeaturedBooksPr
 
       {/* Feature Banner */}
       <div className="max-w-[1600px] mx-auto px-4 mt-20">
-        <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-amber-900 to-amber-700">
+        <div ref={bannerRef} className={`relative rounded-3xl overflow-hidden bg-gradient-to-r from-amber-900 to-amber-700 reveal-scale ${bannerVisible ? 'revealed' : ''}`}>
           <div className="absolute inset-0">
             <img src="https://i.pinimg.com/1200x/16/82/78/168278ef6ef3ec25574bee8eadbc519d.jpg" alt="" className="w-full h-full object-cover opacity-20" />
           </div>
@@ -88,7 +95,7 @@ export function FeaturedBooks({ books, onBookClick, onViewAll }: FeaturedBooksPr
             <h2 className="text-3xl font-black text-gray-900 dark:text-white mt-1" style={{ fontFamily: 'Merriweather, serif' }}>Reader Favorites</h2>
           </div>
         </div>
-        <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide -mx-4 px-4">
+        <div ref={favRef} className={`flex gap-6 overflow-x-auto pb-4 scrollbar-hide -mx-4 px-4 reveal ${favVisible ? 'revealed' : ''}`}>
           {[...books].sort((a, b) => b.reviews - a.reviews).slice(0, 8).map(book => (
             <div key={book.id} className="flex-none w-44 md:w-52">
               <BookCard book={book} onBookClick={onBookClick} />

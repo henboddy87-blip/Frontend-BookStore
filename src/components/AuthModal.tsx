@@ -387,7 +387,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
   ];
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto">
+    <div className="fixed inset-0 z-[120] overflow-y-auto">
       <div
         className="fixed inset-0 bg-black/70 backdrop-blur-sm"
         onClick={onClose}

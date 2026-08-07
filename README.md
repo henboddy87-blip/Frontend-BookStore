@@ -1,154 +1,45 @@
-#  KhmerBookstore
+# KhmerBookstore 📚
 
-A modern, full-featured online bookstore built with **React**, **TypeScript**, and **Tailwind CSS**. Browse thousands of titles across every genre, manage a wishlist and cart, track orders, and more — all from a beautifully designed single-page application.
+A modern, premium, and fully responsive online bookstore platform built with React, TypeScript, and Tailwind CSS.
 
----
+## ✨ Features
 
-##  Preview
+- **Premium UI/UX:** High-end aesthetic with a beautiful dark mode and custom-tailored color palettes (amber and gold accents).
+- **Micro-Interactions & Animations:** Features smooth scroll-reveal animations, 3D tilt effects on book cards, dynamic number count-ups, and interactive hover states for a polished feel.
+- **Multi-Language Support (i18n):** Full support for English and Khmer languages, easily toggleable from the navigation bar.
+- **Dark & Light Mode:** Seamless transition between themes, heavily optimized for readability and aesthetics in both states.
+- **Slide-out Drawers:** Custom-built overlay drawers for the Shopping Cart, Wishlist, and Mobile Navigation.
+- **Fully Responsive:** Optimized for all devices—from large desktop monitors down to mobile screens.
+- **Modern Tech Stack:** Fast and type-safe development using React, Vite, and TypeScript.
 
-> Home page → Category browsing → Book detail → Cart → Checkout
+## 🛠️ Technology Stack
 
----
+- **Framework:** React 18
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS (with custom utility classes in `index.css`)
+- **Icons:** Lucide React & React Icons
+- **Build Tool:** Vite
+- **Routing:** React Router v6
 
-##  Features
-
-###  Shopping
-- Browse **50,000+** books across 12 categories
-- Search by title, author, genre, or tag
-- Filter by category via Navbar or Category grid
-- Book detail modal with description, rating, and add-to-cart
-- Shopping cart with quantity management
-- Wishlist to save books for later
-- Full checkout flow
-
-###  Pages
-| Section | Pages |
-|---|---|
-| **Shop** | All Books, New Arrivals, Bestsellers, On Sale, Award Winners, Book Bundles |
-| **Genres** | Fiction, Non-Fiction, Self-Help, Biography, Children's, Science Fiction, Technology, Khmer Literature, Novel, Health, Finance, Arts |
-| **Help** | FAQ, Shipping Info, Returns, Track Order, Gift Cards, Contact Us |
-
-###  Navigation
-- Sticky Navbar with search bar, cart & wishlist counters, user account
-- **Home** button always returns to the landing page
-- Active pill highlights based on current route
-- Mobile-responsive hamburger menu + tablet category strip
-- Scroll-to-top on every route change
-
-### Interactive Features
-- **Gift Cards** — select amount, buy, and receive a generated gift code
-- **Track Order** — enter order number to see a live-style delivery timeline
-- **Newsletter** — modal popup with email subscribe & success state
-- **Contact Form** — subject selector, message field, success confirmation
-- **FAQ** — accordion answers across 4 sections with sticky category tabs
-
----
-
-
----
-
-## Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js **18+**
-- npm or yarn
+Make sure you have Node.js installed on your machine. The project is configured to use **Node.js v24.13.1** (as specified in `.nvmrc`).
 
 ### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/your-username/khmer-bookstore.git
-cd khmer-bookstore
-
-# Install dependencies
-npm install
-
-# Start the development server
-npm run dev
-```
-
-Open [http://localhost:5173](http://localhost:5173) in your browser.
-
-### Build for Production
-
-```bash
-npm run build
-npm run preview
-```
-
----
-
-## Routes
-
-| Path | Page |
-|---|---|
-| `/` | Home (Hero + Featured + Categories) |
-| `/books` | All Books |
-| `/new-arrivals` | New Arrivals |
-| `/bestsellers` | Bestsellers |
-| `/on-sale` | On Sale |
-| `/award-winners` | Award Winners |
-| `/book-bundles` | Book Bundles |
-| `/genre/:id` | Genre page (fiction, non-fiction, selfHelp…) |
-| `/faq` | FAQ |
-| `/shipping` | Shipping Information |
-| `/returns` | Returns & Refunds |
-| `/track-order` | Track Order |
-| `/gift-cards` | Gift Cards |
-| `/contact` | Contact Us |
-
----
-
-##  Tech Stack
-
-| Tool | Purpose |
-|---|---|
-| [React 18](https://react.dev) | UI framework |
-| [TypeScript](https://www.typescriptlang.org) | Type safety |
-| [Vite](https://vitejs.dev) | Build tool & dev server |
-| [Tailwind CSS](https://tailwindcss.com) | Utility-first styling |
-| [React Router v6](https://reactrouter.com) | Client-side routing |
-
----
-
-##  Design System
-
-| Token | Value |
-|---|---|
-| **Primary colour** | `amber-900` (#78350f) |
-| **Accent colour** | `amber-400` / `amber-500` |
-| **Background** | `white` / `amber-50` |
-| **Dark surface** | `amber-950` (footer) |
-| **Font — headings** | Merriweather (serif) |
-| **Font — body** | System sans-serif / Tailwind default |
-| **Border radius** | `rounded-xl` / `rounded-2xl` / `rounded-full` |
-
----
-
-##  Key Components Guide
-
-### `BookListPage`
-A reusable page wrapper used by all Shop and Genre pages. Accepts:
+1. Clone the repository to your local machine.
+2. Navigate into the project directory:
+   ```bash
+   cd project-pp-book-store
+   ```
+3. Install the dependencies:
+   ```bash
+   npm install
+   ```
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+5. Open your browser and navigate to the localhost URL provided by Vite (usually `http://localhost:5173`).
 
 
-##  Roadmap
-
-- [ ] Backend integration (Node.js / Supabase)
-- [ ] Real authentication (JWT / OAuth)
-- [ ] Payment gateway (Stripe / ABA Pay / KHQR)
-- [ ] User order history
-- [ ] Book reviews & ratings
-- [ ] E-book / digital download support
-- [ ] Admin dashboard
-- [ ] Khmer language (i18n) support
-
----
-
-
-##  Author
-
-**KhmerBookstore Team**
-- 📍 Phnom Penh, Cambodia
-- 📧 support@khmerbookstore.com
-
----
