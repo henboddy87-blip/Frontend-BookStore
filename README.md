@@ -1,45 +1,69 @@
-# KhmerBookstore 📚
+# React Vite Tailwind Book Store
 
-A modern, premium, and fully responsive online bookstore platform built with React, TypeScript, and Tailwind CSS.
+A modern, responsive, and fully-featured frontend application for a book store. Built with React, Vite, and Tailwind CSS.
 
-## ✨ Features
+## 🚀 Features
 
-- **Premium UI/UX:** High-end aesthetic with a beautiful dark mode and custom-tailored color palettes (amber and gold accents).
-- **Micro-Interactions & Animations:** Features smooth scroll-reveal animations, 3D tilt effects on book cards, dynamic number count-ups, and interactive hover states for a polished feel.
-- **Multi-Language Support (i18n):** Full support for English and Khmer languages, easily toggleable from the navigation bar.
-- **Dark & Light Mode:** Seamless transition between themes, heavily optimized for readability and aesthetics in both states.
-- **Slide-out Drawers:** Custom-built overlay drawers for the Shopping Cart, Wishlist, and Mobile Navigation.
-- **Fully Responsive:** Optimized for all devices—from large desktop monitors down to mobile screens.
-- **Modern Tech Stack:** Fast and type-safe development using React, Vite, and TypeScript.
+- **Home Page**: Engaging Hero section, Featured Books, curated Categories, and promotional banners.
+- **Shop & Genre Exploration**: Navigate books by categories, genres (Fiction, Non-fiction, Khmer Literature, etc.), and curated lists (New Arrivals, Bestsellers, Award Winners).
+- **Book Details**: Comprehensive book information and preview.
+- **Shopping Cart & Checkout**: Seamless cart management and a complete checkout flow.
+- **User Authentication**: Integrated login/signup modal.
+- **User Profile & Wishlist**: Manage personal details, order history, and save favorite books.
+- **Help & Legal Pages**: Complete set of static pages including FAQ, Shipping Info, Returns, Privacy Policy, and more.
+- **Responsive Design**: Mobile-friendly interfaces built with Tailwind CSS.
+- **Internationalization Ready**: Base structure for translations included.
 
-## 🛠️ Technology Stack
+## 🛠️ Tech Stack
 
-- **Framework:** React 18
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS (with custom utility classes in `index.css`)
-- **Icons:** Lucide React & React Icons
-- **Build Tool:** Vite
-- **Routing:** React Router v6
+- **Framework**: [React 19](https://react.dev/)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Routing**: [React Router DOM](https://reactrouter.com/)
+- **Icons**: [Lucide React](https://lucide.dev/) & [React Icons](https://react-icons.github.io/react-icons/)
+- **Language**: TypeScript
 
-## 🚀 Getting Started
+## 📂 Project Structure
+
+- `src/components/` - Reusable UI components (Navbar, Footer, BookCard, Cart, Checkout, etc.)
+- `src/pages/` - Application routes and page layouts (Home, Profile, Shop, Genre, Help, Legal).
+- `src/context/` - React Context for global state management (`StoreContext`).
+- `src/data/` - Mock data for books, categories, and translation dictionaries.
+- `src/hooks/` - Custom React hooks.
+- `src/types/` - TypeScript interface definitions.
+- `src/utils/` - Helper functions and utilities.
+
+## ⚙️ Getting Started
 
 ### Prerequisites
-Make sure you have Node.js installed on your machine. The project is configured to use **Node.js v24.13.1** (as specified in `.nvmrc`).
+Make sure you have Node.js (version 20.x recommended) installed.
 
 ### Installation
-1. Clone the repository to your local machine.
-2. Navigate into the project directory:
-   ```bash
-   cd project-pp-book-store
-   ```
-3. Install the dependencies:
+
+1. Install dependencies:
    ```bash
    npm install
    ```
-4. Start the development server:
-   ```bash
-   npm run dev
-   ```
-5. Open your browser and navigate to the localhost URL provided by Vite (usually `http://localhost:5173`).
 
+### Running the App
 
+Start the development server:
+```bash
+npm run dev
+```
+
+The app will be available at `http://localhost:5173` (or another port provided by Vite).
+
+### Building for Production
+
+To build the app for production, run:
+```bash
+npm run build
+```
+The optimized production build will be output to the `dist` folder.
+
+## 📜 Scripts
+
+- `npm run dev`: Starts the development server.
+- `npm run build`: Builds the app for production.
+- `npm run preview`: Previews the production build locally.

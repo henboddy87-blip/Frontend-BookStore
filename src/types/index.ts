@@ -7,7 +7,7 @@ export interface Book {
   image: string;
   images: string[];
   category: string;
-  genre: string;
+  genre: string; 
   rating: number;
   reviews: number;
   pages: number;

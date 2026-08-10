@@ -6,7 +6,6 @@ import {
   Mail as FaEnvelope,
   Lock as FaLock,
   LogOut as FaSignOutAlt,
-  ShoppingBag as FaShoppingBag,
   Heart as FaHeart,
   ChevronRight as FaChevronRight,
   PackageOpen as FaBoxOpen,
@@ -23,10 +22,10 @@ interface AuthModalProps {
   onClose: () => void;
 }
 
-type Tab = "profile" | "orders" | "wishlist";
+export type Tab = "profile" | "orders" | "wishlist";
 
 /* ── Orders Tab ── */
-function OrdersTab() {
+export function OrdersTab() {
   const { orders, t } = useStore();
 
   const statusMeta = (status: string) => {
@@ -127,7 +126,7 @@ function OrdersTab() {
 }
 
 /* ── Wishlist Tab ── */
-function WishlistTab() {
+export function WishlistTab() {
   const { wishlist, removeFromWishlist, t } = useStore();
 
   if (wishlist.length === 0) {
@@ -197,7 +196,7 @@ function WishlistTab() {
 // Library tab removed per UI simplification
 
 /* ── Profile Tab ── */
-function ProfileTab({
+export function ProfileTab({
   user,
   onLogout,
 }: {
@@ -285,7 +284,7 @@ function ProfileTab({
 
 /* ── Main Modal ── */
 export function AuthModal({ isOpen, onClose }: AuthModalProps) {
-  const { user, login, logout, t } = useStore();
+  const { user, login, t } = useStore();
   const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
   const [form, setForm] = useState({
@@ -295,7 +294,6 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
     confirm: "",
   });
   const [loading, setLoading] = useState(false);
-  const [activeTab, setActiveTab] = useState<Tab>("profile");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [agreedTerms, setAgreedTerms] = useState(false);
@@ -372,19 +370,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
     }, 1500);
   };
 
-  const handleLogout = () => {
-    logout();
-    onClose();
-    setActiveTab("profile");
-  };
-
   if (!isOpen) return null;
-
-  const TABS: { id: Tab; icon: typeof FaUser; label: string }[] = [
-    { id: "profile", icon: FaUser, label: t("profile") },
-    { id: "orders", icon: FaShoppingBag, label: t("orders") },
-    { id: "wishlist", icon: FaHeart, label: t("wishlist") },
-  ];
 
   return (
     <div className="fixed inset-0 z-[120] overflow-y-auto">
