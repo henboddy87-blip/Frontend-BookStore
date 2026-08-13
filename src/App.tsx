@@ -52,7 +52,7 @@ import {
 
 export function App() {
   return (
-    <BrowserRouter basename="/Frontend-BookStore">
+    <BrowserRouter>
       <ScrollToTop />
       <StoreProvider>
         <Routes>
